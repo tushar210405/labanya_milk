@@ -1,465 +1,275 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Labanya Milk — Pure &amp; Fresh Dairy</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Labanya Milk — Pure. Fresh. From farm to your table.</title>
+<meta name="description" content="Labanya Milk delivers farm-fresh, hormone-free dairy from grass-fed cows. Pure milk, paneer, ghee and yogurt — straight to your doorstep." />
+<meta property="og:title" content="Labanya Milk — Pure. Fresh. Daily." />
+<meta property="og:image" content="assets/milk-hero.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --background:oklch(0.97 0.018 95);
+  --foreground:oklch(0.22 0.04 150);
+  --primary:oklch(0.32 0.07 155);
+  --primary-foreground:oklch(0.97 0.018 95);
+  --secondary:oklch(0.92 0.04 90);
+  --muted-foreground:oklch(0.45 0.04 150);
+  --accent:oklch(0.78 0.16 70);
+  --accent-foreground:oklch(0.18 0.04 150);
+  --font-display:"Fraunces",ui-serif,Georgia,serif;
+  --font-body:"Inter",ui-sans-serif,system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;border:0 solid rgba(0,0,0,.08)}
+html{scroll-behavior:smooth}
+body{background:var(--background);color:var(--foreground);font-family:var(--font-body);-webkit-font-smoothing:antialiased;line-height:1.5}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+.font-display{font-family:var(--font-display);font-optical-sizing:auto;letter-spacing:-.02em}
+.italic{font-style:italic}
+.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+@media(min-width:1024px){.container{padding:0 2.5rem}}
+
+/* Hero */
+.hero{position:relative;min-height:100vh;overflow:hidden;
+  background-image:
+    radial-gradient(circle at 20% 30%,color-mix(in oklab,var(--accent) 12%,transparent),transparent 50%),
+    radial-gradient(circle at 80% 70%,color-mix(in oklab,var(--primary) 10%,transparent),transparent 50%);
+}
+nav{position:absolute;inset:0 0 auto 0;z-index:30}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1.5rem;max-width:1200px;margin:0 auto}
+@media(min-width:1024px){.nav-inner{padding:1.5rem 2.5rem}}
+.logo{display:flex;align-items:center;gap:.5rem}
+.logo-mark{position:relative;height:2.25rem;width:2.25rem;border-radius:9999px;background:var(--primary);display:flex;align-items:center;justify-content:center}
+.logo-mark span{height:1rem;width:1rem;border-radius:9999px;background:var(--background);animation:drip 4s ease-in-out infinite}
+.logo-text{font-family:var(--font-display);font-size:1.5rem;font-weight:600;letter-spacing:-.02em;color:var(--primary)}
+.nav-links{display:none;gap:2.5rem;font-size:.875rem;color:color-mix(in oklab,var(--foreground) 80%,transparent)}
+@media(min-width:768px){.nav-links{display:flex;align-items:center}}
+.nav-links a:hover{color:var(--primary)}
+.btn{display:inline-flex;align-items:center;gap:.75rem;border-radius:9999px;background:var(--primary);color:var(--primary-foreground);padding:.625rem 1.25rem;font-size:.875rem;font-weight:500;transition:transform .2s;cursor:pointer}
+.btn:hover{transform:scale(1.03)}
+.btn-lg{padding:1rem 2rem;font-size:1rem;box-shadow:0 25px 50px -12px color-mix(in oklab,var(--primary) 30%,transparent)}
+
+.hero-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;align-items:center;min-height:100vh;padding:8rem 1.5rem 4rem;max-width:1200px;margin:0 auto}
+@media(min-width:1024px){.hero-grid{grid-template-columns:repeat(12,1fr);padding:8rem 2.5rem 4rem}}
+.hero-text{animation:floatup .9s cubic-bezier(.22,1,.36,1) both}
+@media(min-width:1024px){.hero-text{grid-column:span 7}}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;border:1px solid color-mix(in oklab,var(--primary) 20%,transparent);background:color-mix(in oklab,var(--background) 60%,transparent);padding:.375rem 1rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.2em;color:var(--primary);backdrop-filter:blur(8px)}
+.eyebrow .dot{height:.375rem;width:.375rem;border-radius:9999px;background:var(--accent)}
+h1.hero-title{font-family:var(--font-display);margin-top:1.5rem;font-size:3.5rem;font-weight:300;line-height:.95;text-wrap:balance}
+@media(min-width:768px){h1.hero-title{font-size:4.5rem}}
+@media(min-width:1024px){h1.hero-title{font-size:8.5rem}}
+h1.hero-title em{color:var(--primary)}
+.hero-sub{margin-top:2rem;max-width:28rem;font-size:1.125rem;color:var(--muted-foreground)}
+.hero-cta{margin-top:2.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem}
+.link-underline{font-size:.875rem;font-weight:500}
+.link-underline:hover{text-decoration:underline}
+.stats{margin-top:4rem;display:flex;align-items:center;gap:2.5rem;border-top:1px solid color-mix(in oklab,var(--foreground) 10%,transparent);padding-top:2rem;flex-wrap:wrap}
+.stat-n{font-family:var(--font-display);font-size:1.875rem;color:var(--primary)}
+.stat-l{margin-top:.25rem;font-size:.75rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted-foreground)}
+
+.hero-img-wrap{position:relative}
+@media(min-width:1024px){.hero-img-wrap{grid-column:span 5}}
+.hero-img{position:relative;margin:0 auto;aspect-ratio:3/4;width:100%;max-width:28rem;overflow:hidden;border-radius:2rem;box-shadow:0 40px 80px -20px rgba(0,0,0,.4)}
+.hero-img img{height:100%;width:100%;object-fit:cover}
+.badge{position:absolute;bottom:1.5rem;left:1.5rem;border-radius:1rem;background:color-mix(in oklab,var(--background) 85%,transparent);padding:.75rem 1.25rem;backdrop-filter:blur(12px)}
+.badge-t{font-family:var(--font-display);font-size:1.125rem;color:var(--primary)}
+.badge-d{font-size:.75rem;color:var(--muted-foreground)}
+.farm-stamp{display:none;position:absolute;right:-1rem;top:2.5rem;height:6rem;width:6rem;transform:rotate(12deg);border-radius:9999px;background:var(--accent);color:var(--accent-foreground);text-align:center;font-family:var(--font-display);font-size:.875rem;line-height:1.2;align-items:center;justify-content:center;box-shadow:0 20px 25px -5px rgba(0,0,0,.15)}
+@media(min-width:768px){.farm-stamp{display:flex}}
+
+/* Marquee */
+.marquee{overflow:hidden;border-top:1px solid color-mix(in oklab,var(--primary) 15%,transparent);border-bottom:1px solid color-mix(in oklab,var(--primary) 15%,transparent);background:var(--primary);padding:1.5rem 0;color:var(--primary-foreground)}
+.marquee-track{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+.marquee span{font-family:var(--font-display);margin:0 2rem;font-size:1.875rem;font-style:italic}
+.marquee .star{color:var(--accent);margin:0 2rem}
+
+/* Story */
+.section{padding:8rem 0}
+#story{background:var(--background)}
+.story-grid{display:grid;grid-template-columns:1fr;gap:4rem}
+@media(min-width:1024px){.story-grid{grid-template-columns:1fr 1fr}}
+.story-img{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:2rem}
+.story-img img{height:100%;width:100%;object-fit:cover}
+.story-text{display:flex;flex-direction:column;justify-content:center}
+.eyebrow-acc{font-size:.75rem;text-transform:uppercase;letter-spacing:.3em;color:var(--accent)}
+h2{font-family:var(--font-display);font-weight:300;line-height:1.1;color:var(--foreground)}
+.h2-lg{font-size:3rem;margin-top:1rem}
+@media(min-width:768px){.h2-lg{font-size:3.75rem}}
+h2 em{color:var(--primary)}
+.lead{margin-top:1.5rem;font-size:1.125rem;color:var(--muted-foreground)}
+.feat{margin-top:2.5rem;list-style:none}
+.feat li{display:flex;gap:1.25rem;border-bottom:1px solid color-mix(in oklab,var(--foreground) 10%,transparent);padding-bottom:1.25rem;margin-bottom:1.25rem}
+.feat .icn{font-family:var(--font-display);font-size:1.875rem;color:var(--accent)}
+.feat .t{font-family:var(--font-display);font-size:1.25rem}
+.feat .d{color:var(--muted-foreground)}
+
+/* Products */
+#products{background:var(--secondary)}
+.products-head{display:flex;flex-direction:column;gap:1.5rem;justify-content:space-between}
+@media(min-width:768px){.products-head{flex-direction:row;align-items:flex-end}}
+.h2-xl{font-size:3rem;margin-top:.75rem}
+@media(min-width:768px){.h2-xl{font-size:4.5rem}}
+.products-sub{max-width:24rem;color:var(--muted-foreground)}
+.products-grid{margin-top:4rem;display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:768px){.products-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.products-grid{grid-template-columns:repeat(4,1fr)}}
+.card{position:relative;overflow:hidden;border-radius:1.5rem;background:var(--background);padding:1.5rem;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-.5rem);box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.card-img{aspect-ratio:1/1;overflow:hidden;border-radius:1rem;background:var(--secondary)}
+.card-img img{height:100%;width:100%;object-fit:cover;transition:transform .7s}
+.card:hover .card-img img{transform:scale(1.1)}
+.tag{position:absolute;right:2rem;top:2rem;border-radius:9999px;background:var(--accent);padding:.25rem .75rem;font-size:.75rem;font-weight:500;color:var(--accent-foreground)}
+.card-row{margin-top:1.25rem;display:flex;justify-content:space-between;align-items:baseline}
+.card-name{font-family:var(--font-display);font-size:1.5rem}
+.card-price{font-family:var(--font-display);font-size:1.25rem;color:var(--primary)}
+.card-note{margin-top:.25rem;font-size:.875rem;color:var(--muted-foreground)}
+
+/* Farms */
+#farms{background:var(--primary);color:var(--primary-foreground);text-align:center}
+.quote{font-family:var(--font-display);margin-top:2rem;font-size:2.25rem;font-weight:300;line-height:1.2;text-wrap:balance}
+@media(min-width:768px){.quote{font-size:3.75rem}}
+.quote em{color:var(--accent)}
+.attrib{margin-top:2.5rem;font-size:.875rem;text-transform:uppercase;letter-spacing:.15em;color:color-mix(in oklab,var(--primary-foreground) 70%,transparent)}
+
+/* CTA */
+#order{background:var(--background);text-align:center}
+.h2-mega{font-family:var(--font-display);font-weight:300;font-size:3.75rem;line-height:.95;text-wrap:balance}
+@media(min-width:768px){.h2-mega{font-size:6rem}}
+.cta-form{margin:3rem auto 0;display:flex;max-width:28rem;flex-direction:column;gap:.75rem}
+@media(min-width:640px){.cta-form{flex-direction:row}}
+.cta-form input{flex:1;border-radius:9999px;border:1px solid color-mix(in oklab,var(--foreground) 15%,transparent);background:var(--background);padding:1rem 1.5rem;font-size:1rem;outline:0}
+.cta-form input:focus{border-color:var(--primary)}
+
+footer{border-top:1px solid color-mix(in oklab,var(--foreground) 10%,transparent);background:var(--background);padding:3.5rem 0}
+.footer-inner{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:1.5rem}
+@media(min-width:768px){.footer-inner{flex-direction:row}}
+.footer-links{display:flex;gap:1.5rem;font-size:.875rem;color:var(--muted-foreground)}
+.footer-links a:hover{color:var(--primary)}
+
+@keyframes floatup{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes drip{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(8px) scaleY(1.05)}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+</style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar" id="navbar">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <svg class="logo-icon" viewBox="0 0 40 40" width="40" height="40">
-          <circle cx="20" cy="20" r="18" fill="#2563eb" />
-          <path d="M13 28 C13 18, 15 12, 20 10 C25 12, 27 18, 27 28 Z" fill="white" opacity="0.9"/>
-          <ellipse cx="20" cy="28" rx="7" ry="2" fill="white" opacity="0.5"/>
-        </svg>
-        <span>Labanya<strong>Milk</strong></span>
-      </a>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#why-us">Why Us</a></li>
-        <li><a href="#testimonials">Testimonials</a></li>
-        <li><a href="#contact" class="btn btn-nav">Contact Us</a></li>
-      </ul>
+<section class="hero">
+  <nav>
+    <div class="nav-inner">
+      <div class="logo"><div class="logo-mark"><span></span></div><span class="logo-text">Labanya</span></div>
+      <div class="nav-links">
+        <a href="#story">Our Story</a><a href="#products">Products</a><a href="#farms">Farms</a><a href="#contact">Contact</a>
+      </div>
+      <a href="#order" class="btn">Order Now</a>
     </div>
   </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-bg"></div>
-    <div class="container hero-content">
-      <p class="hero-tag">Farm Fresh &bull; 100% Pure</p>
-      <h1>Pure Milk,<br />Straight From <span class="highlight">Nature</span></h1>
-      <p class="hero-desc">Experience the wholesome goodness of farm-fresh milk delivered to your doorstep every morning. Labanya Milk — where purity meets taste.</p>
-      <div class="hero-actions">
-        <a href="#products" class="btn btn-primary">Explore Products</a>
-        <a href="#about" class="btn btn-outline">Our Story</a>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <span class="eyebrow"><span class="dot"></span>Est. 1998 · West Bengal</span>
+      <h1 class="hero-title">Pure as<br><em class="italic">morning</em><br>dew.</h1>
+      <p class="hero-sub">Single-origin milk from grass-fed cows roaming the Bengal countryside. Bottled within hours. Delivered before dawn.</p>
+      <div class="hero-cta">
+        <a href="#order" class="btn btn-lg">Start subscription <span>→</span></a>
+        <a href="#story" class="link-underline">Watch our story</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Years of Trust</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-target="50000">0</span><span class="stat-suffix">+</span>
-          <span class="stat-label">Happy Families</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
-          <span class="stat-label">Pure &amp; Natural</span>
-        </div>
+      <div class="stats">
+        <div><div class="stat-n">12k+</div><div class="stat-l">Daily bottles</div></div>
+        <div><div class="stat-n">48</div><div class="stat-l">Partner farms</div></div>
+        <div><div class="stat-n">0</div><div class="stat-l">Preservatives</div></div>
       </div>
     </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about" id="about">
-    <div class="container about-grid">
-      <div class="about-image">
-        <div class="about-img-placeholder">
-          <svg viewBox="0 0 400 400" width="100%" height="100%">
-            <rect width="400" height="400" rx="24" fill="#eff6ff"/>
-            <ellipse cx="200" cy="310" rx="120" ry="30" fill="#bfdbfe"/>
-            <rect x="155" y="120" width="90" height="150" rx="10" fill="white" stroke="#2563eb" stroke-width="3"/>
-            <rect x="155" y="120" width="90" height="40" rx="10" fill="#2563eb"/>
-            <text x="200" y="147" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Inter">LABANYA</text>
-            <text x="200" y="200" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="600" font-family="Inter">FRESH</text>
-            <text x="200" y="218" text-anchor="middle" fill="#2563eb" font-size="12" font-weight="600" font-family="Inter">MILK</text>
-            <path d="M130 100 Q140 60 170 80" stroke="#2563eb" stroke-width="2" fill="none"/>
-            <path d="M270 100 Q260 60 230 80" stroke="#2563eb" stroke-width="2" fill="none"/>
-            <circle cx="130" cy="100" r="4" fill="#2563eb"/>
-            <circle cx="270" cy="100" r="4" fill="#2563eb"/>
-          </svg>
-        </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img">
+        <img src="assets/milk-hero.jpg" alt="Fresh milk splashing in a glass" />
+        <div class="badge"><div class="badge-t">A2 Whole Milk</div><div class="badge-d">6.2g protein · 4% fat</div></div>
       </div>
-      <div class="about-text">
-        <p class="section-tag">Our Story</p>
-        <h2>A Legacy of <span class="highlight">Purity</span> Since 2009</h2>
-        <p>Labanya Milk was born from a simple belief — every family deserves access to pure, unadulterated milk. What started as a small dairy farm has grown into one of the most trusted milk brands in the region.</p>
-        <p>Our cattle are raised with love on lush green pastures, fed natural fodder, and cared for by experienced dairy farmers. We follow a strict no-additive policy, ensuring that what reaches your glass is nothing but pure, creamy goodness.</p>
-        <div class="about-features">
-          <div class="about-feature">
-            <div class="feature-icon">🌿</div>
-            <div>
-              <strong>Farm Fresh</strong>
-              <span>Sourced directly from our own farms</span>
-            </div>
-          </div>
-          <div class="about-feature">
-            <div class="feature-icon">🧪</div>
-            <div>
-              <strong>Lab Tested</strong>
-              <span>Quality checked at every stage</span>
-            </div>
-          </div>
-          <div class="about-feature">
-            <div class="feature-icon">🚚</div>
-            <div>
-              <strong>Daily Delivery</strong>
-              <span>Fresh at your doorstep by 6 AM</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="farm-stamp"><span>Farm<br>Fresh<br>Today</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- PRODUCTS -->
-  <section class="section products" id="products">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">Our Products</p>
-        <h2>Farm-Fresh <span class="highlight">Dairy</span> Goodness</h2>
-        <p class="section-subtitle">From wholesome milk to creamy curd — taste the difference of real purity.</p>
-      </div>
-      <div class="products-grid">
+<div class="marquee">
+  <div class="marquee-track">
+    <span>Hormone-free <span class="star">✦</span></span>
+    <span>Glass bottled <span class="star">✦</span></span>
+    <span>Cold-chain delivery <span class="star">✦</span></span>
+    <span>Grass-fed <span class="star">✦</span></span>
+    <span>A2 protein <span class="star">✦</span></span>
+    <span>Zero preservatives <span class="star">✦</span></span>
+    <span>Hormone-free <span class="star">✦</span></span>
+    <span>Glass bottled <span class="star">✦</span></span>
+    <span>Cold-chain delivery <span class="star">✦</span></span>
+    <span>Grass-fed <span class="star">✦</span></span>
+    <span>A2 protein <span class="star">✦</span></span>
+    <span>Zero preservatives <span class="star">✦</span></span>
+  </div>
+</div>
 
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #eff6ff, #dbeafe);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#2563eb" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#2563eb"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">FULL</text>
-              <text x="60" y="98" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">CREAM</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Full Cream Milk</h3>
-            <p>Rich, creamy, and packed with natural nutrients. Perfect for growing kids and the whole family.</p>
-            <div class="product-meta">
-              <span class="product-price">₹68 / litre</span>
-              <span class="product-badge">Bestseller</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #eff6ff, #dbeafe);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#2563eb" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#2563eb"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">TONED</text>
-              <text x="60" y="98" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">MILK</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Toned Milk</h3>
-            <p>Light and nutritious with reduced fat content. Ideal for health-conscious individuals.</p>
-            <div class="product-meta">
-              <span class="product-price">₹54 / litre</span>
-              <span class="product-badge blue">Low Fat</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #fefce8, #fef9c3);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#ca8a04" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#ca8a04"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#854d0e" font-size="9" font-weight="600">PURE</text>
-              <text x="60" y="98" text-anchor="middle" fill="#854d0e" font-size="9" font-weight="600">GHEE</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Pure Desi Ghee</h3>
-            <p>Made from fresh cream using traditional methods. Aromatic, golden, and absolutely pure.</p>
-            <div class="product-meta">
-              <span class="product-price">₹650 / kg</span>
-              <span class="product-badge gold">Premium</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #fdf2f8, #fce7f3);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#db2777" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#db2777"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#9d174d" font-size="9" font-weight="600">FRESH</text>
-              <text x="60" y="98" text-anchor="middle" fill="#9d174d" font-size="9" font-weight="600">CURD</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Fresh Curd</h3>
-            <p>Thick, creamy curd set naturally from our fresh milk. Great for digestion and daily meals.</p>
-            <div class="product-meta">
-              <span class="product-price">₹45 / 500g</span>
-              <span class="product-badge pink">Probiotic</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #faf5ff, #f3e8ff);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#9333ea" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#9333ea"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#6b21a8" font-size="9" font-weight="600">PANEER</text>
-              <text x="60" y="98" text-anchor="middle" fill="#6b21a8" font-size="9" font-weight="600">FRESH</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Fresh Paneer</h3>
-            <p>Soft, melt-in-your-mouth paneer made from our whole milk. A protein powerhouse.</p>
-            <div class="product-meta">
-              <span class="product-price">₹320 / kg</span>
-              <span class="product-badge purple">High Protein</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="product-card">
-          <div class="product-img" style="background: linear-gradient(135deg, #fff7ed, #ffedd5);">
-            <svg viewBox="0 0 120 160" width="120" height="160">
-              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#ea580c" stroke-width="2"/>
-              <rect x="25" y="30" width="70" height="30" rx="8" fill="#ea580c"/>
-              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
-              <text x="60" y="85" text-anchor="middle" fill="#9a3412" font-size="9" font-weight="600">BUTTER</text>
-              <text x="60" y="98" text-anchor="middle" fill="#9a3412" font-size="9" font-weight="600">MILK</text>
-            </svg>
-          </div>
-          <div class="product-info">
-            <h3>Buttermilk</h3>
-            <p>Refreshing, lightly spiced buttermilk — the perfect companion for hot summer days.</p>
-            <div class="product-meta">
-              <span class="product-price">₹25 / 500ml</span>
-              <span class="product-badge orange">Refreshing</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
+<section id="story" class="section">
+  <div class="container story-grid">
+    <div class="story-img"><img src="assets/cows-pasture.jpg" alt="Cows grazing" /></div>
+    <div class="story-text">
+      <span class="eyebrow-acc">Our story</span>
+      <h2 class="h2-lg">Three generations.<br><em class="italic">One promise.</em></h2>
+      <p class="lead">Labanya began in 1998 as a single dairy in Nadia district. Today, we work with 48 family-run farms — paying fair prices, refusing shortcuts, and bottling milk the way it was meant to taste.</p>
+      <ul class="feat">
+        <li><span class="icn">✦</span><div><div class="t">Slow-grazed</div><div class="d">Cows roam open pastures, never confined.</div></div></li>
+        <li><span class="icn">✦</span><div><div class="t">Cold-pressed</div><div class="d">Pasteurized at low temperature to keep nutrients alive.</div></div></li>
+        <li><span class="icn">✦</span><div><div class="t">Glass-bottled</div><div class="d">Returnable bottles. No plastic. No compromise.</div></div></li>
+      </ul>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- WHY US -->
-  <section class="section why-us" id="why-us">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">Why Labanya</p>
-        <h2>The <span class="highlight">Labanya</span> Promise</h2>
-        <p class="section-subtitle">What makes us the preferred choice for thousands of families.</p>
+<section id="products" class="section">
+  <div class="container">
+    <div class="products-head">
+      <div>
+        <span class="eyebrow-acc">The collection</span>
+        <h2 class="h2-xl">Made with <em class="italic">care</em>.</h2>
       </div>
-      <div class="why-grid">
-        <div class="why-card">
-          <div class="why-icon">🐄</div>
-          <h3>Own Dairy Farms</h3>
-          <p>Our milk comes from our own well-maintained farms where cattle are treated with utmost care and fed organic fodder.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">❄️</div>
-          <h3>Cold Chain Delivery</h3>
-          <p>Temperature-controlled supply chain from farm to your doorstep ensures maximum freshness and nutrition.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🔬</div>
-          <h3>Quality Tested</h3>
-          <p>Every batch undergoes rigorous quality checks in our state-of-the-art laboratory before dispatch.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🚫</div>
-          <h3>No Preservatives</h3>
-          <p>We never add preservatives, chemicals, or artificial substances. What you get is 100% natural milk.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">🌅</div>
-          <h3>Morning Delivery</h3>
-          <p>Wake up to fresh milk every day. We deliver before 6 AM so your mornings start right.</p>
-        </div>
-        <div class="why-card">
-          <div class="why-icon">�</div>
-          <h3>Eco-Friendly</h3>
-          <p>Recyclable glass bottles, solar-powered facilities, and sustainable farming practices for a greener future.</p>
-        </div>
-      </div>
+      <p class="products-sub">Four staples. Crafted in small batches. Delivered before sunrise to your doorstep.</p>
     </div>
-  </section>
+    <div class="products-grid">
+      <article class="card"><div class="card-img"><img src="assets/products.jpg" alt="Whole Milk"/></div><span class="tag">Bestseller</span><div class="card-row"><h3 class="card-name">Whole Milk</h3><span class="card-price">₹70</span></div><p class="card-note">1L glass bottle</p></article>
+      <article class="card"><div class="card-img"><img src="assets/products.jpg" alt="Cultured Yogurt"/></div><span class="tag">New</span><div class="card-row"><h3 class="card-name">Cultured Yogurt</h3><span class="card-price">₹95</span></div><p class="card-note">500g · slow-set</p></article>
+      <article class="card"><div class="card-img"><img src="assets/products.jpg" alt="Fresh Paneer"/></div><div class="card-row"><h3 class="card-name">Fresh Paneer</h3><span class="card-price">₹220</span></div><p class="card-note">250g block</p></article>
+      <article class="card"><div class="card-img"><img src="assets/products.jpg" alt="Cultured Ghee"/></div><span class="tag">Premium</span><div class="card-row"><h3 class="card-name">Cultured Ghee</h3><span class="card-price">₹680</span></div><p class="card-note">500ml jar · A2</p></article>
+    </div>
+  </div>
+</section>
 
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials" id="testimonials">
-    <div class="container">
-      <div class="section-header">
-        <p class="section-tag">Testimonials</p>
-        <h2>Loved by <span class="highlight">Families</span></h2>
-        <p class="section-subtitle">Hear what our customers have to say about Labanya Milk.</p>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p>"We switched to Labanya Milk two years ago and haven't looked back. The taste and freshness is unmatched. My kids love it!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">SM</div>
-            <div>
-              <strong>Sunita Mishra</strong>
-              <span>Homemaker, Bhubaneswar</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p>"As a café owner, milk quality matters a lot. Labanya's full cream milk gives the best froth and flavour. Highly recommended!"</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">RK</div>
-            <div>
-              <strong>Rajesh Kumar</strong>
-              <span>Café Owner, Cuttack</span>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card">
-          <div class="testimonial-stars">★★★★★</div>
-          <p>"The paneer and ghee from Labanya are simply outstanding. You can taste the purity. My family refuses to use any other brand now."</p>
-          <div class="testimonial-author">
-            <div class="author-avatar">AP</div>
-            <div>
-              <strong>Ananya Patel</strong>
-              <span>Food Blogger, Kolkata</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<section id="farms" class="section">
+  <div class="container" style="max-width:64rem">
+    <span class="eyebrow-acc">From our farmers</span>
+    <blockquote class="quote">“We've supplied Labanya for fifteen years. They pay fairly, on time — <em class="italic">and they taste every batch themselves.</em>”</blockquote>
+    <div class="attrib">Ratan Mondal · Krishnanagar Dairy</div>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section class="cta-section">
-    <div class="container cta-content">
-      <h2>Ready to Taste the <span class="highlight-white">Difference</span>?</h2>
-      <p>Join 50,000+ families who trust Labanya Milk for their daily dairy needs. Start your subscription today!</p>
-      <div class="cta-actions">
-        <a href="#contact" class="btn btn-white">Start Subscription</a>
-        <a href="tel:+911234567890" class="btn btn-outline-white">📞 Call Us Now</a>
-      </div>
-    </div>
-  </section>
+<section id="order" class="section">
+  <div class="container" style="max-width:64rem">
+    <h2 class="h2-mega">Wake up to <em class="italic" style="color:var(--primary)">labanya</em>.</h2>
+    <p class="lead" style="margin:2rem auto 0;max-width:36rem">Subscribe and receive freshly bottled milk at your door — every morning, no plastic, no fuss.</p>
+    <form class="cta-form" onsubmit="event.preventDefault()">
+      <input type="email" required placeholder="your@email.com" />
+      <button type="submit" class="btn btn-lg">Get started</button>
+    </form>
+  </div>
+</section>
 
-  <!-- CONTACT -->
-  <section class="section contact" id="contact">
-    <div class="container contact-grid">
-      <div class="contact-info">
-        <p class="section-tag">Get In Touch</p>
-        <h2>We'd Love to <span class="highlight">Hear</span> From You</h2>
-        <p>Whether you want to place an order, start a subscription, or just have a question — we're here to help.</p>
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            <div>
-              <strong>Visit Us</strong>
-              <span>Labanya Dairy Farm, NH-16, Bhubaneswar, Odisha 751024</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">📞</div>
-            <div>
-              <strong>Call Us</strong>
-              <span>+91 12345 67890</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">✉️</div>
-            <div>
-              <strong>Email Us</strong>
-              <span>hello@labanyamilk.com</span>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon">⏰</div>
-            <div>
-              <strong>Working Hours</strong>
-              <span>Mon — Sat: 6:00 AM – 8:00 PM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="contact-form-wrap">
-        <form class="contact-form" id="contactForm">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" />
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="logo">
-          <svg class="logo-icon" viewBox="0 0 40 40" width="40" height="40">
-            <circle cx="20" cy="20" r="18" fill="#2563eb" />
-            <path d="M13 28 C13 18, 15 12, 20 10 C25 12, 27 18, 27 28 Z" fill="white" opacity="0.9"/>
-            <ellipse cx="20" cy="28" rx="7" ry="2" fill="white" opacity="0.5"/>
-          </svg>
-          <span>Labanya<strong>Milk</strong></span>
-        </a>
-        <p>Delivering purity and freshness to Indian families since 2009. Your trusted dairy partner.</p>
-      </div>
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#products">Products</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="#products">Full Cream Milk</a></li>
-          <li><a href="#products">Toned Milk</a></li>
-          <li><a href="#products">Desi Ghee</a></li>
-          <li><a href="#products">Fresh Paneer</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Follow Us</h4>
-        <ul>
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">YouTube</a></li>
-          <li><a href="#">Twitter</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="container footer-bottom">
-      <p>&copy; 2025 Labanya Milk. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+<footer id="contact">
+  <div class="container footer-inner">
+    <div class="logo"><div class="logo-mark"><span></span></div><span class="logo-text">Labanya</span></div>
+    <p style="font-size:.875rem;color:var(--muted-foreground)">© <span id="y"></span> Labanya Milk Co. · Nadia, West Bengal</p>
+    <div class="footer-links"><a href="#">Instagram</a><a href="#">Facebook</a><a href="#">hello@labanya.in</a></div>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 </body>
 </html>
