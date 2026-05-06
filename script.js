@@ -126,7 +126,7 @@ if (contactForm) {
 
     setTimeout(() => {
       btn.textContent = 'Message Sent!';
-      btn.style.background = '#15803d';
+      btn.style.background = '#1d4ed8';
       contactForm.reset();
 
       setTimeout(() => {
