@@ -3,266 +3,463 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Labanya Milk</title>
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family: Arial, sans-serif;
-    }
-
-    body{
-      background:#f8fcff;
-      color:#222;
-    }
-
-    header{
-      background:white;
-      padding:18px 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      box-shadow:0 2px 10px rgba(0,0,0,0.08);
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
-
-    .logo{
-      font-size:28px;
-      font-weight:bold;
-      color:#0b73ff;
-    }
-
-    nav a{
-      text-decoration:none;
-      color:#333;
-      margin-left:25px;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    nav a:hover{
-      color:#0b73ff;
-    }
-
-    .hero{
-      height:90vh;
-      background:linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)),
-      url('https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=1600&auto=format&fit=crop');
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:white;
-      padding:20px;
-    }
-
-    .hero-content h1{
-      font-size:60px;
-      margin-bottom:20px;
-    }
-
-    .hero-content p{
-      font-size:22px;
-      margin-bottom:30px;
-    }
-
-    .btn{
-      background:#0b73ff;
-      color:white;
-      padding:14px 30px;
-      border:none;
-      border-radius:40px;
-      font-size:18px;
-      cursor:pointer;
-      transition:0.3s;
-      text-decoration:none;
-    }
-
-    .btn:hover{
-      background:#0056d6;
-    }
-
-    section{
-      padding:80px 8%;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:40px;
-      margin-bottom:50px;
-      color:#0b73ff;
-    }
-
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-    }
-
-    .about img{
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.1);
-    }
-
-    .about-text p{
-      font-size:18px;
-      line-height:1.8;
-    }
-
-    .products{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:30px;
-    }
-
-    .card{
-      background:white;
-      padding:25px;
-      border-radius:20px;
-      text-align:center;
-      box-shadow:0 5px 18px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .card:hover{
-      transform:translateY(-8px);
-    }
-
-    .card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-      border-radius:15px;
-      margin-bottom:20px;
-    }
-
-    .card h3{
-      margin-bottom:10px;
-      color:#0b73ff;
-    }
-
-    .contact{
-      background:#0b73ff;
-      color:white;
-      border-radius:25px;
-      text-align:center;
-      padding:60px 30px;
-    }
-
-    .contact p{
-      margin-top:15px;
-      font-size:18px;
-    }
-
-    footer{
-      text-align:center;
-      padding:20px;
-      background:#042c63;
-      color:white;
-      margin-top:50px;
-    }
-
-    @media(max-width:900px){
-
-      .hero-content h1{
-        font-size:42px;
-      }
-
-      .about{
-        grid-template-columns:1fr;
-      }
-
-      nav{
-        display:none;
-      }
-    }
-
-  </style>
+  <title>Labanya Milk — Pure &amp; Fresh Dairy</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <header>
-    <div class="logo">Labanya Milk</div>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-icon" viewBox="0 0 40 40" width="40" height="40">
+          <circle cx="20" cy="20" r="18" fill="#16a34a" />
+          <path d="M13 28 C13 18, 15 12, 20 10 C25 12, 27 18, 27 28 Z" fill="white" opacity="0.9"/>
+          <ellipse cx="20" cy="28" rx="7" ry="2" fill="white" opacity="0.5"/>
+        </svg>
+        <span>Labanya<strong>Milk</strong></span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact" class="btn btn-nav">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#products">Products</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Freshness in Every Drop</h1>
-      <p>Pure, healthy and farm-fresh milk delivered daily.</p>
-      <a href="#products" class="btn">Explore Products</a>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="hero-tag">Farm Fresh &bull; 100% Pure</p>
+      <h1>Pure Milk,<br />Straight From <span class="highlight">Nature</span></h1>
+      <p class="hero-desc">Experience the wholesome goodness of farm-fresh milk delivered to your doorstep every morning. Labanya Milk — where purity meets taste.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn btn-primary">Explore Products</a>
+        <a href="#about" class="btn btn-outline">Our Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Years of Trust</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="50000">0</span><span class="stat-suffix">+</span>
+          <span class="stat-label">Happy Families</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Pure &amp; Natural</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2 class="section-title">About Us</h2>
-
-    <div class="about">
-      <img src="https://images.unsplash.com/photo-1563636619-e9143da7973b?q=80&w=1200&auto=format&fit=crop" alt="Milk">
-
+  <!-- ABOUT -->
+  <section class="section about" id="about">
+    <div class="container about-grid">
+      <div class="about-image">
+        <div class="about-img-placeholder">
+          <svg viewBox="0 0 400 400" width="100%" height="100%">
+            <rect width="400" height="400" rx="24" fill="#f0fdf4"/>
+            <ellipse cx="200" cy="310" rx="120" ry="30" fill="#bbf7d0"/>
+            <rect x="155" y="120" width="90" height="150" rx="10" fill="white" stroke="#16a34a" stroke-width="3"/>
+            <rect x="155" y="120" width="90" height="40" rx="10" fill="#16a34a"/>
+            <text x="200" y="147" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="Inter">LABANYA</text>
+            <text x="200" y="200" text-anchor="middle" fill="#16a34a" font-size="12" font-weight="600" font-family="Inter">FRESH</text>
+            <text x="200" y="218" text-anchor="middle" fill="#16a34a" font-size="12" font-weight="600" font-family="Inter">MILK</text>
+            <path d="M130 100 Q140 60 170 80" stroke="#16a34a" stroke-width="2" fill="none"/>
+            <path d="M270 100 Q260 60 230 80" stroke="#16a34a" stroke-width="2" fill="none"/>
+            <circle cx="130" cy="100" r="4" fill="#16a34a"/>
+            <circle cx="270" cy="100" r="4" fill="#16a34a"/>
+          </svg>
+        </div>
+      </div>
       <div class="about-text">
-        <p>
-          Labanya Milk is dedicated to providing fresh, nutritious, and high-quality dairy products to families every day. 
-          Our milk comes directly from trusted farms and is processed with modern hygiene standards to ensure purity and taste.
-          <br><br>
-          We believe healthy families start with healthy nutrition.
-        </p>
+        <p class="section-tag">Our Story</p>
+        <h2>A Legacy of <span class="highlight">Purity</span> Since 2009</h2>
+        <p>Labanya Milk was born from a simple belief — every family deserves access to pure, unadulterated milk. What started as a small dairy farm has grown into one of the most trusted milk brands in the region.</p>
+        <p>Our cattle are raised with love on lush green pastures, fed natural fodder, and cared for by experienced dairy farmers. We follow a strict no-additive policy, ensuring that what reaches your glass is nothing but pure, creamy goodness.</p>
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="feature-icon">🌿</div>
+            <div>
+              <strong>Farm Fresh</strong>
+              <span>Sourced directly from our own farms</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🧪</div>
+            <div>
+              <strong>Lab Tested</strong>
+              <span>Quality checked at every stage</span>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="feature-icon">🚚</div>
+            <div>
+              <strong>Daily Delivery</strong>
+              <span>Fresh at your doorstep by 6 AM</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="products">
-    <h2 class="section-title">Our Products</h2>
-
-    <div class="products">
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1550583724-b2692b85b150?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>Fresh Milk</h3>
-        <p>Pure and healthy full cream milk.</p>
+  <!-- PRODUCTS -->
+  <section class="section products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Our Products</p>
+        <h2>Farm-Fresh <span class="highlight">Dairy</span> Goodness</h2>
+        <p class="section-subtitle">From wholesome milk to creamy curd — taste the difference of real purity.</p>
       </div>
+      <div class="products-grid">
 
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>Butter</h3>
-        <p>Rich creamy butter made naturally.</p>
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #f0fdf4, #dcfce7);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#16a34a" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#16a34a"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#166534" font-size="9" font-weight="600">FULL</text>
+              <text x="60" y="98" text-anchor="middle" fill="#166534" font-size="9" font-weight="600">CREAM</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Full Cream Milk</h3>
+            <p>Rich, creamy, and packed with natural nutrients. Perfect for growing kids and the whole family.</p>
+            <div class="product-meta">
+              <span class="product-price">₹68 / litre</span>
+              <span class="product-badge">Bestseller</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #eff6ff, #dbeafe);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#2563eb" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#2563eb"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">TONED</text>
+              <text x="60" y="98" text-anchor="middle" fill="#1e40af" font-size="9" font-weight="600">MILK</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Toned Milk</h3>
+            <p>Light and nutritious with reduced fat content. Ideal for health-conscious individuals.</p>
+            <div class="product-meta">
+              <span class="product-price">₹54 / litre</span>
+              <span class="product-badge blue">Low Fat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fefce8, #fef9c3);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#ca8a04" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#ca8a04"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#854d0e" font-size="9" font-weight="600">PURE</text>
+              <text x="60" y="98" text-anchor="middle" fill="#854d0e" font-size="9" font-weight="600">GHEE</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Pure Desi Ghee</h3>
+            <p>Made from fresh cream using traditional methods. Aromatic, golden, and absolutely pure.</p>
+            <div class="product-meta">
+              <span class="product-price">₹650 / kg</span>
+              <span class="product-badge gold">Premium</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fdf2f8, #fce7f3);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#db2777" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#db2777"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#9d174d" font-size="9" font-weight="600">FRESH</text>
+              <text x="60" y="98" text-anchor="middle" fill="#9d174d" font-size="9" font-weight="600">CURD</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Fresh Curd</h3>
+            <p>Thick, creamy curd set naturally from our fresh milk. Great for digestion and daily meals.</p>
+            <div class="product-meta">
+              <span class="product-price">₹45 / 500g</span>
+              <span class="product-badge pink">Probiotic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #faf5ff, #f3e8ff);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#9333ea" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#9333ea"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#6b21a8" font-size="9" font-weight="600">PANEER</text>
+              <text x="60" y="98" text-anchor="middle" fill="#6b21a8" font-size="9" font-weight="600">FRESH</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Fresh Paneer</h3>
+            <p>Soft, melt-in-your-mouth paneer made from our whole milk. A protein powerhouse.</p>
+            <div class="product-meta">
+              <span class="product-price">₹320 / kg</span>
+              <span class="product-badge purple">High Protein</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fff7ed, #ffedd5);">
+            <svg viewBox="0 0 120 160" width="120" height="160">
+              <rect x="25" y="30" width="70" height="110" rx="8" fill="white" stroke="#ea580c" stroke-width="2"/>
+              <rect x="25" y="30" width="70" height="30" rx="8" fill="#ea580c"/>
+              <text x="60" y="50" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="Inter">LABANYA</text>
+              <text x="60" y="85" text-anchor="middle" fill="#9a3412" font-size="9" font-weight="600">BUTTER</text>
+              <text x="60" y="98" text-anchor="middle" fill="#9a3412" font-size="9" font-weight="600">MILK</text>
+            </svg>
+          </div>
+          <div class="product-info">
+            <h3>Buttermilk</h3>
+            <p>Refreshing, lightly spiced buttermilk — the perfect companion for hot summer days.</p>
+            <div class="product-meta">
+              <span class="product-price">₹25 / 500ml</span>
+              <span class="product-badge orange">Refreshing</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-
-      <div class="card">
-        <img src="https://images.unsplash.com/photo-1571212515416-fca0d1b3fb6d?q=80&w=1200&auto=format&fit=crop" alt="">
-        <h3>Cheese</h3>
-        <p>Fresh and delicious dairy cheese.</p>
-      </div>
-
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact">
-      <h2>Contact Us</h2>
-      <p>Email: info@labanyamilk.com</p>
-      <p>Phone: +91 98765 43210</p>
-      <p>Location: Odisha, India</p>
+  <!-- WHY US -->
+  <section class="section why-us" id="why-us">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Why Labanya</p>
+        <h2>The <span class="highlight">Labanya</span> Promise</h2>
+        <p class="section-subtitle">What makes us the preferred choice for thousands of families.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">🐄</div>
+          <h3>Own Dairy Farms</h3>
+          <p>Our milk comes from our own well-maintained farms where cattle are treated with utmost care and fed organic fodder.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">❄️</div>
+          <h3>Cold Chain Delivery</h3>
+          <p>Temperature-controlled supply chain from farm to your doorstep ensures maximum freshness and nutrition.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🔬</div>
+          <h3>Quality Tested</h3>
+          <p>Every batch undergoes rigorous quality checks in our state-of-the-art laboratory before dispatch.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🚫</div>
+          <h3>No Preservatives</h3>
+          <p>We never add preservatives, chemicals, or artificial substances. What you get is 100% natural milk.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">🌅</div>
+          <h3>Morning Delivery</h3>
+          <p>Wake up to fresh milk every day. We deliver before 6 AM so your mornings start right.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">💚</div>
+          <h3>Eco-Friendly</h3>
+          <p>Recyclable glass bottles, solar-powered facilities, and sustainable farming practices for a greener future.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    © 2026 Labanya Milk. All Rights Reserved.
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Testimonials</p>
+        <h2>Loved by <span class="highlight">Families</span></h2>
+        <p class="section-subtitle">Hear what our customers have to say about Labanya Milk.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"We switched to Labanya Milk two years ago and haven't looked back. The taste and freshness is unmatched. My kids love it!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div>
+              <strong>Sunita Mishra</strong>
+              <span>Homemaker, Bhubaneswar</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"As a café owner, milk quality matters a lot. Labanya's full cream milk gives the best froth and flavour. Highly recommended!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div>
+              <strong>Rajesh Kumar</strong>
+              <span>Café Owner, Cuttack</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p>"The paneer and ghee from Labanya are simply outstanding. You can taste the purity. My family refuses to use any other brand now."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AP</div>
+            <div>
+              <strong>Ananya Patel</strong>
+              <span>Food Blogger, Kolkata</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <h2>Ready to Taste the <span class="highlight-white">Difference</span>?</h2>
+      <p>Join 50,000+ families who trust Labanya Milk for their daily dairy needs. Start your subscription today!</p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn btn-white">Start Subscription</a>
+        <a href="tel:+911234567890" class="btn btn-outline-white">📞 Call Us Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact" id="contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <p class="section-tag">Get In Touch</p>
+        <h2>We'd Love to <span class="highlight">Hear</span> From You</h2>
+        <p>Whether you want to place an order, start a subscription, or just have a question — we're here to help.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <strong>Visit Us</strong>
+              <span>Labanya Dairy Farm, NH-16, Bhubaneswar, Odisha 751024</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <strong>Call Us</strong>
+              <span>+91 12345 67890</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <strong>Email Us</strong>
+              <span>hello@labanyamilk.com</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div>
+              <strong>Working Hours</strong>
+              <span>Mon — Sat: 6:00 AM – 8:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrap">
+        <form class="contact-form" id="contactForm">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 40 40" width="40" height="40">
+            <circle cx="20" cy="20" r="18" fill="#16a34a" />
+            <path d="M13 28 C13 18, 15 12, 20 10 C25 12, 27 18, 27 28 Z" fill="white" opacity="0.9"/>
+            <ellipse cx="20" cy="28" rx="7" ry="2" fill="white" opacity="0.5"/>
+          </svg>
+          <span>Labanya<strong>Milk</strong></span>
+        </a>
+        <p>Delivering purity and freshness to Indian families since 2009. Your trusted dairy partner.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#products">Full Cream Milk</a></li>
+          <li><a href="#products">Toned Milk</a></li>
+          <li><a href="#products">Desi Ghee</a></li>
+          <li><a href="#products">Fresh Paneer</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">YouTube</a></li>
+          <li><a href="#">Twitter</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2025 Labanya Milk. All rights reserved.</p>
+    </div>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
